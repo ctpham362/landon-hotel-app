@@ -15,6 +15,8 @@ import {map} from "rxjs/operators";
 })
 export class AppComponent implements OnInit{
 
+  welcomeMessage: string = ``;
+
   constructor(private httpClient:HttpClient){}
 
   private baseURL:string='http://localhost:8080';
@@ -33,7 +35,14 @@ export class AppComponent implements OnInit{
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
       });
-
+      this.httpClient.get(this.baseURL + '/api/welcome', { responseType: "text" })
+        .subscribe({
+          next: msg => {
+            //console.log('message displayed', msg);
+            this.welcomeMessage = msg;
+          },
+          //error: err => console.error("failed to display message", err)
+        });
  //     this.rooms=ROOMS;
 
 
