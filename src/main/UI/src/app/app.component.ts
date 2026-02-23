@@ -39,10 +39,8 @@ export class AppComponent implements OnInit{
       this.httpClient.get(this.baseURL + '/api/welcome', { responseType: "text" })
         .subscribe({
           next: msg => {
-            //console.log('message displayed', msg);
             this.welcomeMessage = msg;
           },
-          //error: err => console.error("failed to display message", err)
         });
 
       this.httpClient.get(this.baseURL + '/api/presentation-time', { responseType: "text" }).subscribe(msg => this.presentationTime = msg);
