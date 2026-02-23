@@ -7,7 +7,6 @@ import {map} from "rxjs/operators";
 
 
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,6 +15,8 @@ import {map} from "rxjs/operators";
 export class AppComponent implements OnInit{
 
   welcomeMessage: string = ``;
+
+  presentationTime: string = ``;
 
   constructor(private httpClient:HttpClient){}
 
@@ -43,6 +44,8 @@ export class AppComponent implements OnInit{
           },
           //error: err => console.error("failed to display message", err)
         });
+
+      this.httpClient.get(this.baseURL + '/api/presentation-time', { responseType: "text" }).subscribe(msg => this.presentationTime = msg);
  //     this.rooms=ROOMS;
 
 

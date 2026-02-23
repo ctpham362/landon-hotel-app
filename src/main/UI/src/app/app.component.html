@@ -1,11 +1,13 @@
 
 
 <header id="intro" style="display: block;">
+
   <article class="fullheight" style="height: 568px;">
     <div class="hgroup">
       <h1>Landon Hotel</h1>
       <h2>London, Ontario</h2>
       <h2 *ngIf="welcomeMessage">{{ welcomeMessage }}</h2>
+      <h2 *ngIf="presentationTime" [innerHTML]="presentationTime"></h2>
       <p><a href="/#welcome"><img src="assets/images/arrow.png" alt="down arrow"></a></p>
     </div>
   </article>
@@ -27,7 +29,7 @@
 
 
       <div class="row">
-        <div class=""col-12>
+        <div class="col-12">
           <div class="gallery">
             <img src="assets/images/intro_room.jpg" alt="Intro Gallery Room Sample Pictures">
             <img src="assets/images/intro_pool.jpg" alt="Intro Gallery Pool Sample Pictures">
